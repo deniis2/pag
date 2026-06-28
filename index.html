@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dennis Cuadros Sotomayor — Portafolio BD II</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body class="dark-mode" id="body">
+
+  <canvas id="particles-canvas"></canvas>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-brand">
+      <div class="nav-logo">DC</div>
+      <div class="nav-brand-text">
+        <span class="nav-name">Dennis Cuadros</span>
+        <span class="nav-sub">Sotomayor</span>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="#inicio" class="nav-link active" onclick="setActiveNav(this)">Inicio</a>
+      <a href="#portafolio" class="nav-link" onclick="setActiveNav(this)">Portafolio</a>
+    </div>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Cambiar tema">
+        <span class="theme-icon" id="themeIcon">☀️</span>
+        <span class="theme-label" id="themeLabel">Claro</span>
+      </button>
+      <div class="online-badge">
+        <span class="online-dot"></span>
+        Online
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero" id="inicio">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Base de Datos II · 2026
+      </div>
+      <h1 class="hero-title">
+        Dennis Cuadros<br/>
+        <span class="hero-accent">Sotomayor</span>
+      </h1>
+      <p class="hero-career">Ingeniería de Sistemas y Computación</p>
+      <p class="hero-desc">
+        Portafolio académico de 16 semanas abarcando fundamentos de bases de datos,
+        modelado ER, SQL avanzado, normalización, arquitecturas y proyecto final integrador.
+      </p>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num">16</span>
+          <span class="stat-label">Semanas</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">100%</span>
+          <span class="stat-label">Dedicación</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num accent">SQL</span>
+          <span class="stat-label">+ NoSQL</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="login-card" id="loginCard">
+      <div class="login-icon">◆</div>
+      <h2 class="login-title">Acceso administrativo</h2>
+      <p class="login-sub">Gestión de estados del portafolio</p>
+      <div class="input-group">
+        <label class="input-label">Usuario</label>
+        <input type="text" class="input-field" id="loginUser" placeholder="correo@ejemplo.com" autocomplete="off"/>
+      </div>
+      <div class="input-group">
+        <input type="password" class="input-field" id="loginPass" placeholder="Contraseña" autocomplete="off"/>
+      </div>
+      <button class="btn-login" onclick="handleLogin()">
+        Ingresar al panel →
+      </button>
+      <div class="login-msg" id="loginMsg"></div>
+    </div>
+  </section>
+
+  <section class="portfolio" id="portafolio">
+    <div class="portfolio-header">
+      <p class="portfolio-eyebrow">PORTAFOLIO</p>
+      <h2 class="portfolio-title">Proyectos <span class="accent">Semanales</span></h2>
+      <p class="portfolio-sub">16 semanas de aprendizaje continuo en bases de datos</p>
+    </div>
+
+    <div class="progress-widget" id="progressWidget">
+      <span class="progress-icon">📊</span>
+      <span class="progress-text">Progreso académico</span>
+      <span class="progress-fraction" id="progressFraction">0/16</span>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="progressBar" style="width:0%"></div>
+      </div>
+      <span class="progress-pct" id="progressPct">0% completado</span>
+    </div>
+
+    <div class="weeks-grid" id="weeksGrid">
+      <div class="loading-state">
+        <div class="spinner"></div>
+        <p>Cargando semanas...</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+    <div class="modal-card" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <div>
+          <span class="modal-badge" id="modalBadge">Semana X</span>
+          <h3 class="modal-title" id="modalTitle">Título</h3>
+        </div>
+        <button class="modal-close" onclick="closeModal()">✕</button>
+      </div>
+      <div class="modal-desc-box">
+        <p id="modalDesc">Descripción.</p>
+      </div>
+      <div class="modal-files-section">
+        <p class="modal-files-title">📁 Archivos de esta semana</p>
+        <div id="modalFiles">
+          <p class="no-files">Sin archivos por ahora.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
