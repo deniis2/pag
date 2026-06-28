@@ -1,7 +1,7 @@
 // =============================================
 //  SUPABASE — CREDENCIALES
 // =============================================
-const SUPABASE_URL      = 'https://vseltacxhkdrqfqynrmw.supabase.co';
+const SUPABASE_URL      = 'https://vseltacxhkdrqfqynrmw.supabase.co/rest/v1/';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZzZWx0YWN4aGtkcnFmcXlucm13Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI2NjQ2MTEsImV4cCI6MjA5ODI0MDYxMX0.hK-IbE52QiV-7DNpCAYF0u1TqYsqI09QOz7a26rTA7M';
 
 const { createClient } = supabase;
